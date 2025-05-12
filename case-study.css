@@ -1,0 +1,183 @@
+:root {
+    --font-primary: 'Cabinet Grotesk', sans-serif;
+}
+
+body {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    background: #1a1a1a;
+    color:  #ffffff;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.back-nav {
+    margin-bottom: 3rem;
+}
+
+.back-button {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.back-button:hover {
+    opacity: 1;
+}
+
+.case-header {
+    margin-bottom: 4rem;
+}
+
+.case-header h1,
+.case-header .date,
+.case-content h2,
+.case-content p {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+.case-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+}
+
+.case-header .date {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.role-client {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.case-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.case-content h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.case-content p {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.case-content p + p {
+    margin-top: 0.25rem;
+}
+
+.results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.results li {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.results li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+}
+
+.case-image {
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.case-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-caption {
+    padding: 1rem;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.ideation,
+.testing {
+    margin: 3rem 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    .case-header h1 {
+        font-size: 2rem;
+    }
+
+    .role-client {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .case-image {
+        margin: 1.5rem 0;
+    }
+}
+
+.case-content > div {
+    margin: 0;
+}
+
+.tab-pane {
+    min-height: 600px;
+    padding: 20px;
+}
+
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+} 
+
+.video-container {
+    margin: 2rem 0; /* Espaciado alrededor del video */
+    text-align: center; /* Centrar el video */
+}
+
+.video-container iframe {
+    max-width: 100%; /* Hacer que el video sea responsivo */
+    height: auto; /* Mantener la proporción */
+}
