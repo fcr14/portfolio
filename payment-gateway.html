@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway Case Study - Francisco Cárcamo</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,400,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+    <!-- Agregar div de carga -->
+    <div id="loadingOverlay" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #1a1a1a;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.3s ease;
+    ">
+        <div class="loader-percentage">Verificando acceso...</div>
+    </div>
+
+    <div class="container">
+        <nav class="back-nav">
+            <a href="index.html" class="back-button">← Back to home</a>
+        </nav>
+
+        <article class="case-study">
+            <header class="case-header">
+                <h1>Payment Gateway - Bci Bank</h1>
+                <p class="date">Sep 1, 2023</p>
+            </header>
+
+            <section class="case-intro">
+                <div class="role-client">
+                    <div class="role">
+                        <h2>Role</h2>
+                        <p>UX/Product Owner</p>
+                    </div>
+                    <div class="client">
+                        <h2>Client</h2>
+                        <p>BCI Bank is one of Chile's leading banks, with operations in Peru and the United States. It became the largest bank in Florida after acquiring City National Bank.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-content">
+                <div class="challenge">
+                    <h2>Challenge</h2>
+                    <p>Internal technological systems and services (backend and other services) within bank teams frequently changed, primarily due to the large scale of these companies. In 2021, Bci Bank, specifically in the corporate banking sector, set out to make a significant change in this regard. The first component selected for upgrade in service level and frontend was the "payment gateway."</p>
+                    
+                    <div class="case-image">
+                        <img src="/img/old bdp.webp" alt="Old version of the Bci Payment Gateway">
+                        <p class="image-caption">Old version of the Bci Payment Gateway</p>
+                    </div>
+                </div>
+
+                <div class="research">
+                    <h2>Research and Discovery</h2>
+                    <p>In this project, the research primarily involved aligning with our new payment processing provider to analyze which functionalities could be enabled to generate value for the end user. In this case, the product is B2B, meaning it is sold to businesses, but the final payer is a retail consumer (B2C).</p>
+                </div>
+
+                <div class="ideation">
+                    <h2>Ideation</h2>
+                    <p>Following extensive alignment between internal and external bank teams, the new functionalities were clear. These include high customization for the merchant or company utilizing the "Bci Payment Gateway," such as amount limits, time restrictions, and distinguishing between individual or corporate clients. Additionally, the implementation of an in-house anti-fraud system, a first for the bank, was planned.</p>
+                </div>
+
+                <div class="testing">
+                    <h2>Testing</h2>
+                    <p>After creating the wireframes, we generated the initial high-fidelity designs and prototyped them for testing. The new design experience was a significant change from what existed before, much more accessible, responsive across different platforms, and aligned with the bank's design system.</p>
+                    
+                    <div class="case-image">
+                        <img src="/img/usertest.webp" alt="Usability Testing">
+                        <p class="image-caption">Usability Testing</p>
+                    </div>
+                </div>
+
+
+                <!-- Space for the video 1 -->
+                <div class="video-container">
+                    <h2>Personal Banking Journey</h2>
+                    <video width="840" height="450" controls>
+                        <source src="/img/bdp-cases.mov" type="video/mp4"> <!-- Replace with your video path -->
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <!-- Space for the video 2 -->
+                <div class="video-container">
+                    <h2>Business Banking Journey</h2>
+                    <video width="840" height="450" controls>
+                        <source src="/img/flujo empresa.mov" type="video/mp4"> <!-- Replace with your video path -->
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="results">
+                    <h2>Results</h2>
+                    <p>During the first three months of pilot implementation with Unired, we achieved:</p>
+                    <ul>
+                        <li>A churn rate of less than 8%, which drops to 2% when excluding authentication issues</li>
+                        <li>Session time reduced by 76%</li>
+                        <li>Customization options for the payment gateway, including setting daily amount limits and control levels</li>
+                        <li>Implementation of a high-quality anti-fraud system</li>
+                    </ul>
+                </div>
+            </section>
+        </article>
+    </div>
+
+    <!-- Agregar el script de verificación antes del contenido -->
+    <script src="auth-check.js"></script>
+</body>
+</html> 

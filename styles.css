@@ -1,0 +1,628 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: #1a1a1a;
+    color: #1a1a1a;
+    min-height: 100vh;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+.welcome-message {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.8;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-percentage {
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.name {
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.name span {
+    font-weight: 500;
+}
+
+.title {
+    font-size: 1.8rem;
+    letter-spacing: -0.03em;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.content-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 340px;
+    position: relative;
+}
+
+.tab-nav {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 0.9rem;
+    border: none;
+    background: none;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+}
+
+.tab-btn.active {
+    color: #ffffff;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+}
+
+.tab-btn.active::after {
+    width: 100%;
+}
+
+.tab-content {
+    position: relative;
+    min-height: 250px;
+}
+
+.tab-pane {
+    padding: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-pane.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.tab-pane h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.tab-pane p {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.9rem;
+}
+
+.tab-pane img {
+    width: 24px;
+    height: 24px;
+    margin-top: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.tab-pane img:hover {
+    opacity: 1;
+}
+
+.tab-pane a svg {
+    width: 24px;
+    height: 24px;
+    margin-top: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    color: #ffffff;
+}
+
+.tab-pane a:hover svg {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+}
+
+.current {
+    margin-top: 2rem;
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links img {
+    width: 24px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.social-links img:hover {
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Media queries para diferentes alturas de pantalla */
+@media screen and (max-height: 700px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .content-card {
+        min-height: 250px;
+    }
+    
+    .tab-content {
+        min-height: 200px;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .container {
+        padding: 1rem;
+    }
+}
+
+/* Media query existente para el ancho */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .content-card {
+        max-width: 100%;
+    }
+}
+
+.main-content {
+    width: 100%;
+    min-height: 100vh;
+    transition: opacity 1s ease;
+}
+
+.logo-container {
+    position: relative;
+    width: 150px;  /* Ajusta según el tamaño de tu logo */
+    height: 150px; /* Ajusta según el tamaño de tu logo */
+    margin: 0 auto 2rem;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo.grayscale {
+    filter: grayscale(100%) opacity(0.3);
+}
+
+.logo.colored {
+    filter: none;
+}
+
+.logo-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Comienza en 0 y se animará hasta 100% */
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+:root {
+    --font-primary: 'Cabinet Grotesk', sans-serif;
+}
+
+/* Estilos para la grid de casos */
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos para las cards de casos */
+.case-card {
+    background: none;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 180px;
+}
+
+.case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.case-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.case-image {
+    width: 100%;
+    height: 130px;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.case-card:hover .case-image img {
+    transform: scale(1.05);
+}
+
+.case-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.8rem;
+    margin-top: -1px;
+}
+
+.case-info h3 {
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+
+.case-info p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    line-height: 1.3;
+    margin: 0;
+}
+
+#cases.tab-pane {
+    padding-top: 1rem;
+}
+
+/* Mantener el responsive */
+@media (max-width: 768px) {
+    .cases-grid {
+        gap: 1rem;
+        margin-top: 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .case-card {
+        max-width: 140px;
+    }
+
+    .case-image {
+        height: 110px;
+    }
+
+    .case-info {
+        padding: 0.8rem 0.6rem;
+    }
+
+    .case-info h3 {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .case-info p {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .cases-grid {
+        gap: 0.8rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .case-card {
+        max-width: 120px;
+    }
+
+    .case-image {
+        height: 100px;
+    }
+
+    .case-info {
+        padding: 0.5rem;
+    }
+
+    .case-info h3 {
+        font-size: 0.75rem;
+    }
+}
+
+/* Estilos para cards bloqueadas */
+.case-card.locked {
+    position: relative;
+    cursor: pointer;
+}
+
+.lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
+}
+
+.case-card.locked .case-image {
+    position: relative;
+}
+
+.case-card.locked .case-image .lock-overlay {
+    border-radius: 8px 8px 0 0;
+}
+
+.lock-overlay svg {
+    width: 32px;
+    height: 32px;
+    opacity: 0.8;
+}
+
+.case-card.locked:hover .lock-overlay {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Modal de autenticación */
+.auth-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #1e1e1e;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.close-modal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.close-modal:hover {
+    opacity: 1;
+}
+
+.modal-content h2 {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 1rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    color: white;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 0.8rem;
+    background: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content button:hover {
+    opacity: 0.9;
+}
+
+.error-message {
+    color: #ff4444;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    display: none;
+}
+
+/* Estilos del perro de la esquina */
+.corner-dog {
+    display: none;
+}
+
+#dogCanvas {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.dog-sleeping,
+.dog-awake {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.dog-sleeping {
+    opacity: 1;
+}
+
+.dog-awake {
+    opacity: 0;
+}
+
+.corner-dog:hover .dog-sleeping {
+    opacity: 0;
+}
+
+.corner-dog:hover .dog-awake {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .corner-dog {
+        width: 80px;
+        height: 80px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+.contact-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.contact-text {
+    color: #fff;
+    margin-bottom: 1em;
+    /* Puedes agregar más estilos si quieres que se vea igual que otros textos */
+}
